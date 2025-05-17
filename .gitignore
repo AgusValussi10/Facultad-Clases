@@ -1,0 +1,33 @@
+# Ignorar ejecutables y binarios
+*.exe
+*.o
+*.out
+*.obj
+
+# Ignorar archivos temporales de compilación
+*.log
+*.tmp
+*.bak
+*.aux
+*.vscode/settings.json
+
+# Ignorar carpetas de compilación comunes
+/build/
+/dist/
+/Debug/
+/Release/
+
+# Archivos de respaldo de editores
+*~
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+
+# Git LFS opcional (si llegás a usarlo)
+/*.gitattributes
+
+# Archivos ocultos de sistema
+.DS_Store
+Thumbs.db
