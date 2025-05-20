@@ -8,6 +8,11 @@ int main() {
 	return 0;
 }
 
+// git add .                      # Agregar todos los cambios
+// git commit -m "Tu mensaje"     # Crear el commit
+// git push origin main           # Subir a la rama main en GitHub
+
+
 // PRINTF y SCANF: permiten la transferencia de caracteres individuales, valores numericos y cadenas de caracteres
 // SCANF, el operador & es necesario en scanf() para simular las llamadas por referencia, y hace que la funcion trabaje
 // internamiente con la direccion de la variable
