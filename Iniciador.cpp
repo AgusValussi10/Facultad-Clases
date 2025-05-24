@@ -8,6 +8,7 @@ int main() {
 	return 0;
 }
 
+// git status					  # 
 // git add .                      # Agregar todos los cambios
 // git commit -m "Tu mensaje"     # Crear el commit
 // git push origin main           # Subir a la rama main en GitHub
