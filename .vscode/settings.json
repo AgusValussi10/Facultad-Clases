@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "EJERCICIO1.C": "cpp"
+        "EJERCICIO1.C": "cpp",
+        "xstring": "c"
     }
     
 }
