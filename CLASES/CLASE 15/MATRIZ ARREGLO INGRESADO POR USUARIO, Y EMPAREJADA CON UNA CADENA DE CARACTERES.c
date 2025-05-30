@@ -1,21 +1,20 @@
-#include <cstdio>  // Para funciones de entrada/salida como printf y scanf
-
+#include <stdio.h>  // Para funciones de entrada/salida como printf y scanf
 int main() {
-	int arreglo[10];        // Arreglo donde se guardarán los 10 números ingresados
-	int matriz[3][3];       // Matriz 3x3 para almacenar los primeros 9 números del arreglo
+	int arreglo[10];        // Arreglo donde se guardarï¿½n los 10 nï¿½meros ingresados
+	int matriz[3][3];       // Matriz 3x3 para almacenar los primeros 9 nï¿½meros del arreglo
 	
 	int i = 0;
-	int errores_totales = 0;        // Contador de errores totales al ingresar números
+	int errores_totales = 0;        // Contador de errores totales al ingresar nï¿½meros
 	int errores_consecutivos = 0;   // Contador de errores consecutivos
 	
-	// Solicita al usuario ingresar 10 números válidos entre 1 y 100
+	// Solicita al usuario ingresar 10 nï¿½meros vï¿½lidos entre 1 y 100
 	printf("Ingrese 10 numeros entre 1 y 100:\n");
 	while (i < 10) {
 		int num;
 		printf("Elemento %d: ", i + 1);
 		scanf("%d", &num);
 		
-		// Si el número está dentro del rango válido, se guarda
+		// Si el nï¿½mero estï¿½ dentro del rango vï¿½lido, se guarda
 		if (num >= 1 && num <= 10) {
 			arreglo[i] = num;
 			i++;
@@ -24,9 +23,9 @@ int main() {
 			errores_totales++;        // Aumenta el total de errores
 			errores_consecutivos++;   // Aumenta el contador de errores seguidos
 			
-			// Si se ingresan 3 errores consecutivos, el cuarto valor será 1 automático
+			// Si se ingresan 3 errores consecutivos, el cuarto valor serï¿½ 1 automï¿½tico
 			if (errores_consecutivos >= 4) {
-				printf("Se han ingresado 3 valores incorrectos consecutivos. Asignando 1 automáticamente.\n");
+				printf("Se han ingresado 3 valores incorrectos consecutivos. Asignando 1 automï¿½ticamente.\n");
 				arreglo[i] = 1;
 				i++;
 				errores_consecutivos = 0;  // Reinicia errores consecutivos
@@ -36,13 +35,13 @@ int main() {
 		}
 	}
 	
-	// Muestra el contenido del arreglo, un número por línea
+	// Muestra el contenido del arreglo, un nï¿½mero por lï¿½nea
 	printf("\nArreglo cargado:\n");
 	for (int j = 0; j < 10; ++j) {
 		printf("%d\n", arreglo[j]);
 	}
 	
-	// Muestra la cantidad total de errores cometidos al ingresar números
+	// Muestra la cantidad total de errores cometidos al ingresar nï¿½meros
 	printf("Cantidad total de ingresos incorrectos: %d\n", errores_totales);
 	
 	// Llena la matriz 3x3 con los primeros 9 valores del arreglo
@@ -54,7 +53,7 @@ int main() {
 		}
 	}
 	
-	// Crea una cadena de caracteres con letras que representan los números del arreglo
+	// Crea una cadena de caracteres con letras que representan los nï¿½meros del arreglo
 	char cadena[11];  // 9 caracteres visibles + '\0' para el fin de cadena
 	for (int j = 0; j < 10; ++j) {
 		switch (arreglo[j]) {
@@ -63,7 +62,7 @@ int main() {
 		case 3: cadena[j] = 'I'; break;  // 3 en I
 		case 4: cadena[j] = 'O'; break;  // 4 en O
 		case 5: cadena[j] = 'U'; break;  // 5 en U
-		default: cadena[j] = '_'; break; // Otros números se representan con guión bajo
+		default: cadena[j] = '_'; break; // Otros nï¿½meros se representan con guiï¿½n bajo
 		}
 	}
 	cadena[10] = '\0';  // Fin de cadena
@@ -95,8 +94,8 @@ int main() {
 		printf("Cantidad de O: %d\n", cont_O);
 		printf("Cantidad de U: %d\n", cont_U);
 	} else {
-		// Si no hay ninguna vocal válida, se informa que la cadena está vacía
-		printf("\nLa cadena está vacía (sin vocales válidas).\n");
+		// Si no hay ninguna vocal vï¿½lida, se informa que la cadena estï¿½ vacï¿½a
+		printf("\nLa cadena estï¿½ vacï¿½a (sin vocales vï¿½lidas).\n");
 	}
 	
 	return 0;  // Fin del programa

@@ -10,7 +10,7 @@ int main()
 	
 	ult=0;
 	i=0;
-	while(i < final && lista[i]!='')
+	while(i < final && lista[i]!= 0)
 	{
 		printf("Digito %d:%d\n",i,lista[i]);
 		ult++;

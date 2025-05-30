@@ -1,4 +1,4 @@
-#include <cstdio>  // Para scanf y printf
+#include <stdio.h>
 
 int main() {
 	int arreglo[10];

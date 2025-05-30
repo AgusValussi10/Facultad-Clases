@@ -7,7 +7,7 @@ int main()
 	int a,t,p;  // Declarar Variables
 	
 	printf ("Hoy es Miercoles \n"); // \n sirve para dar un enter
-	printf ("Hoy es la segunda clase de Prog. I \n")s; 
+	printf ("Hoy es la segunda clase de Prog. I \n"); 
 	a = 3; // Asignamos valor
 	printf ("El Valor de la Variable A, es: %d \n",a ); // %d es para determinar como un entero decimal
 	b = 'i'; // Asignamos valor
@@ -27,8 +27,8 @@ int main()
 
 // GETCHAR y PUTCHAR: permiten la transferencia de 
 // caracteres individuales hacia dentro y hacia fuera de la computadora
-// GETCHAR, lee un solo carácter desde la entrada estándar (teclado)
-// PUTHCAR, imprime un solo carácter en la salida estándar (pantalla)
+// GETCHAR, lee un solo carï¿½cter desde la entrada estï¿½ndar (teclado)
+// PUTHCAR, imprime un solo carï¿½cter en la salida estï¿½ndar (pantalla)
 
 // GETS y PUTS: permiten la entrada y salida de cadenas de caracteres.
 // GETS, toma el almacena el Valor
