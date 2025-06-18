@@ -1,0 +1,15 @@
+CocaCola,500,20
+Pepsi,480,15
+AguaMineral,300,25
+JugoNaranja,350,18
+Cerveza,600,12
+PanLactal,450,10
+Salchichas,700,8
+QuesoUntable,550,6
+YerbaMate,800,14
+Azucar,400,17
+CafeInstantaneo,950,9
+Te,300,20
+Caramelos,150,60
+BarraCereal,220,35
+Hamburguesa,1000,5
