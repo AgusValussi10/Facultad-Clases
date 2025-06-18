@@ -1,53 +1,39 @@
-Despues de cada venta el archivo.txt se debe actualizar solo, para no cometer errores
-Ver que la cantidad a vender no se mayor que la que hay en stock
-cada vez que el usuario intete registrar una venta, que muestre los productos, solo el producto y el stock
-Hacerlo con precios redondos, sin comas para facilitar la carga de stock
-1. Validaciones más robustas
+1. Despues de cada venta el archivo.txt se debe actualizar solo, para no cometer errores
+
+2. Ver que la cantidad a vender no se mayor que la que hay en stock
+
+3. Cada vez que el usuario intete registrar una venta, que muestre los productos, solo el producto y el stock
+
+4. Hacerlo con precios redondos, sin comas para facilitar la carga de stock
+
+5. Validaciones más robustas
 Validar entrada del usuario (ej. que la cantidad vendida sea positiva y no supere el stock).
-
 Controlar que el nombre del producto no tenga caracteres inválidos o espacios problemáticos.
-
 Manejar mejor casos cuando el usuario ingresa un producto no existente.
 
-2. Buscar productos por número, no solo por nombre
+6 Buscar productos por número, no solo por nombre
 Mostrar el listado de productos con índice y que la venta se pueda ingresar por número de producto para evitar errores de tipeo.
 
-3. Mostrar resumen de stock y alertas
+7. Mostrar resumen de stock y alertas
 Mostrar productos con stock bajo (ejemplo: menos de 5 unidades) para facilitar la reposición.
-
 Alertas al intentar vender productos con poco stock.
 
-4. Registrar fecha y hora de cada venta
-Modificar la estructura Venta para que guarde la fecha y hora del momento de la venta.
-
-Mostrar esta información al mostrar las ventas.
-
-5. Guardar y leer productos en formato binario
+8. Guardar y leer productos en formato binario
 Actualmente solo guardás productos en texto, podrías agregar un archivo binario para guardar y leer productos (más seguro y rápido).
 
-6. Historial de ventas
+9. Historial de ventas
 Guardar las ventas en archivo para poder consultar días anteriores.
-
 Agregar opción para consultar ventas de días anteriores leyendo diferentes archivos o filtrando por fecha.
 
-7. Estadísticas adicionales
-Mostrar promedio de ventas por producto.
-
-Mostrar producto más vendido del día.
-
-Mostrar total de productos vendidos (cantidad, no solo dinero).
-
-8. Interfaz mejorada
+10. Interfaz mejorada
 Limpiar pantalla al mostrar menús para mejor visualización (usar system("clear") o system("cls") según sistema).
-
 Mejorar mensajes y prompts para hacer más amigable el uso.
 
-9. Mejor manejo de strings y buffers
+11. Mejor manejo de strings y buffers
 Usar fgets para leer nombre de producto en la venta y evitar problemas con espacios o buffer overflow.
-
 Normalizar entradas (convertir a minúsculas para comparar nombres, por ejemplo).
 
-10. Código modular
+12. Código modular
 Separar funciones en archivos .h y .c para organización.
 
-Documentar funciones con comentarios explicativos.
+13. Documentar funciones con comentarios explicativos.

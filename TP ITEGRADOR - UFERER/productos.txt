@@ -1,7 +1,0 @@
-CocaCola,500.00,0
-Galletitas,300.00,14
-Caramelos,100.00,120
-Harina000,900.00,32
-Block300,1200.00,4
-ToplineSeven,1200.00,21
-RedBull,3000.00,18
