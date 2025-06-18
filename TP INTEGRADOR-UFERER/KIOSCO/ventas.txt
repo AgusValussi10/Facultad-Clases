@@ -1,0 +1,3 @@
+Producto: Hamburguesa | Cantidad: 5 | Precio: 1000 | Subtotal: 5000
+Producto: CocaCola | Cantidad: 1 | Precio: 500 | Subtotal: 500
+TOTAL VENDIDO: $5500

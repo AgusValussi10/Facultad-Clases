@@ -9,15 +9,13 @@ Este programa en lenguaje C permite gestionar un punto de venta para un kiosco, 
 ----------------------------
 - KIOSCO
 -   |---- SRC/
-    |     ├── .C/ .................... Archivos fuente (.c)
-    |     └── .H/ .................... Archivos de cabecera (.h)
+    |     ├── .C/ .................... Archivos fuente (.c) // Contienen funciones, lógica del programa, main(), etc.
+    |     └── .H/ .................... Archivos de cabecera (.h) // Contienen declaraciones: prototipos de funciones, constantes y estructuras.
 -   |─ MAIN.c ....................... Archivo principal
 -   |─ productos.txt ............... Archivo de texto con los productos
 -   |─ RESGISTRO DE VENTAS (COMPILADOR )..... Script para ejecutar programa mas facil
 - MEJORAS.txt .................. Archivo que describe mejoras con respecto al programa base
 - PLANIFICACION.pdf ............ Archivo que describe el paso a paso seguido para desarrollar el programa
-
-
 
 ----------------------------
 ⚙️ FUNCIONALIDADES

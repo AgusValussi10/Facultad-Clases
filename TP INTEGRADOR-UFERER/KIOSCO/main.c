@@ -11,7 +11,7 @@
 #define MAX_PRODUCTOS 100
 #define MAX_VENTAS 100
 
-#define ARCHIVO_VENTAS "ventas.dat"
+#define ARCHIVO_VENTAS "ventas.txt"
 #define ARCHIVO_TXT_PRODUCTOS "productos.txt"
 
 int main() {

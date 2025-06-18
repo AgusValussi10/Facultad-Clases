@@ -1,4 +1,4 @@
-CocaCola,500,20
+CocaCola,500,10
 Pepsi,480,15
 AguaMineral,300,25
 JugoNaranja,350,18

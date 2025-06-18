@@ -4,7 +4,7 @@
 #include "../.H/venta.h"
 #include "../.H/producto.h"  // para usar Producto y buscarProducto
 
-#define ARCHIVO_VENTAS "ventas.dat"
+#define ARCHIVO_VENTAS "ventas.txt"
 
 void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas *registro) {
     char entrada[50];
@@ -67,14 +67,14 @@ void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas 
     Venta venta;
     strcpy(venta.nombre, productos[indice].nombre); // Copiar nombre del producto a la venta
     venta.cantidad = cantidad; 
-    venta.precio = productos[indice].precio * cantidad;
+    venta.precio = productos[indice].precio; // Calcular precio total de la venta
     registro->ventas[registro->totalVentas++] = venta; // Registrar la venta
 
     printf("Venta registrada: %s - Cantidad: %d - Total: $%d\n",
-           venta.nombre, venta.cantidad, venta.precio);
+           venta.nombre, venta.cantidad, venta.precio * venta.cantidad);
     printf("Stock restante de %s: %d\n", productos[indice].nombre, productos[indice].stock);
 
-  // Limpieza de buffer para evitar problemas con getchar
+        // Limpieza de buffer para evitar problemas con getchar
         printf("Presione ENTER para continuar...");
         while (getchar() != '\n');
         getchar();
@@ -83,37 +83,21 @@ void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas 
 
 void mostrarVentas(RegistroVentas *registro) {
     printf("\nVentas del dia:\n");
-    float totalGeneral = 0.0;
+    int totalGeneral = 0.0;
     for (int i = 0; i < registro->totalVentas; i++) {
         printf("%d. %s - Cantidad: %d - Total: $%d\n",
                i + 1,
                registro->ventas[i].nombre,
                registro->ventas[i].cantidad,
-               registro->ventas[i].precio);
-        totalGeneral += registro->ventas[i].precio;
+               registro->ventas[i].precio * registro->ventas[i].cantidad);
+        totalGeneral += registro->ventas[i].precio * registro->ventas[i].cantidad; // Calcular total general
     }
     printf("TOTAL VENDIDO: $%d\n", totalGeneral);
-    printf("Presione una tecla para continuar...");
+    // Limpieza de buffer para evitar problemas con getchar
+    printf("Presione ENTER para continuar...");
+    while (getchar() != '\n');
     getchar();
-    getchar();
-    system("cls");
-}
-
-void guardarVentas(RegistroVentas *registro) {
-    FILE *archivo = fopen(ARCHIVO_VENTAS, "wb");
-    if (archivo == NULL) {
-        printf("No se pudo abrir archivo de ventas.\n");
-        return;
-    }
-
-    fwrite(registro, sizeof(RegistroVentas), 1, archivo); // Guardar registro de ventas en el archivo
-    fclose(archivo); // Cerrar el archivo
-    printf("Ventas guardadas en %s.\n", ARCHIVO_VENTAS);
-   // Limpieza de buffer para evitar problemas con getchar
-        printf("Presione ENTER para continuar...");
-        while (getchar() != '\n');
-        getchar();
-        system("cls"); // Limpiar pantalla para una mejor visualización
+    system("cls"); // Limpiar pantalla para una mejor visualización
 }
 
 void leerVentas(RegistroVentas *registro) {
@@ -126,3 +110,32 @@ void leerVentas(RegistroVentas *registro) {
     fread(registro, sizeof(RegistroVentas), 1, archivo); // Leer registro de ventas desde el archivo
     fclose(archivo);
 }
+
+void guardarVentas(RegistroVentas *registro) {
+    FILE *archivo = fopen("ventas.txt", "w");
+    if (archivo == NULL) {
+        printf("No se pudo abrir ventas.txt para escribir.\n");
+        return;
+    }
+
+    int total = 0;
+
+    for (int i = 0; i < registro->totalVentas; i++) {
+        Venta v = registro->ventas[i];
+        int subtotal = v.precio * v.cantidad;
+        fprintf(archivo, "Producto: %s | Cantidad: %d | Precio: %d | Subtotal: %d\n",
+                v.nombre, v.cantidad, v.precio, subtotal);
+        total += subtotal;
+    }
+
+    fprintf(archivo, "TOTAL VENDIDO: $%d\n", total);
+    fclose(archivo);
+    printf("Ventas guardadas correctamente en ventas.txt\n");
+
+    // Limpieza de buffer para evitar problemas con getchar
+    printf("Presione ENTER para continuar...");
+    while (getchar() != '\n');
+    getchar();
+    system("cls"); // Limpiar pantalla para una mejor visualización
+}
+
