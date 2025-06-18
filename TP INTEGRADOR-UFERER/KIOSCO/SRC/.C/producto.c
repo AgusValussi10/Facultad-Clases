@@ -7,7 +7,7 @@
 #define ARCHIVO_TXT_PRODUCTOS "productos.txt"
 
 void cargarProductosDesdeTxt(Producto productos[], int *cantidadProductos) {
-    FILE *archivo = fopen(ARCHIVO_TXT_PRODUCTOS, "r");
+    FILE *archivo = fopen(ARCHIVO_TXT_PRODUCTOS, "r"); // abrir en modo lectura
     if (archivo == NULL) {
         printf("No se pudo abrir productos.txt. Verifique que exista.\n");
         return;
@@ -16,21 +16,21 @@ void cargarProductosDesdeTxt(Producto productos[], int *cantidadProductos) {
     char linea[100];
     *cantidadProductos = 0;
 
-    while (fgets(linea, sizeof(linea), archivo)) {
-        linea[strcspn(linea, "\n")] = 0;
-        char *nombre = strtok(linea, ",");
-        char *precioStr = strtok(NULL, ",");
-        char *stockStr = strtok(NULL, ",");
+    while (fgets(linea, sizeof(linea), archivo)) { // leer cada linea del archivo
+        linea[strcspn(linea, "\n")] = 0; // eliminar el salto de linea al final
+        char *nombre = strtok(linea, ","); // separar por comas
+        char *precioStr = strtok(NULL, ","); // obtener el precio
+        char *stockStr = strtok(NULL, ","); // obtener el stock
 
-        if (nombre && precioStr && stockStr) {
-            strcpy(productos[*cantidadProductos].nombre, nombre);
-            productos[*cantidadProductos].precio = atoi(precioStr);
-            productos[*cantidadProductos].stock = atoi(stockStr);
+        if (nombre && precioStr && stockStr) {  // verificar que se hayan obtenido todos los campos
+            strcpy(productos[*cantidadProductos].nombre, nombre); // copiar el nombre del producto
+            productos[*cantidadProductos].precio = atoi(precioStr); // convertir el precio a entero
+            productos[*cantidadProductos].stock = atoi(stockStr); // convertir el stock a entero
             (*cantidadProductos)++;
         }
     }
 
-    fclose(archivo);
+    fclose(archivo); // cerrar el archivo
 }
 
 void exportarProductosATexto(Producto productos[], int cantidadProductos) {
@@ -54,22 +54,25 @@ void mostrarProductos(Producto productos[], int cantidadProductos) {
         printf("%d. %s - Precio: $%d - Stock: %d\n",
                i + 1, productos[i].nombre, productos[i].precio, productos[i].stock);
     }
+    // Limpieza de buffer para evitar problemas con getchar
     printf("Presione ENTER para continuar...");
-    while (getchar() != '\n'); // Limpiar buffer
+    while (getchar() != '\n');
     getchar();
-    system("cls");
+    system("cls"); // Limpiar pantalla para una mejor visualización
 }
 
 int buscarProducto(Producto productos[], int cantidadProductos, char *entrada) {
-    if (isdigit(entrada[0])) {
-        int numero = atoi(entrada);
+    if (isdigit(entrada[0])) { /// Verifica si la entrada es un número
+        // Si es un número, lo convertimos a entero y buscamos por índice
+        int numero = atoi(entrada); // Convierte la entrada a un número entero
         if (numero >= 1 && numero <= cantidadProductos) {
             return numero - 1;
         } else {
             return -1;
         }
     } else {
-        #ifdef _WIN32
+        #ifdef _WIN32// Definición para Windows
+        // para comparación sin distinción de mayúsculas/minúsculas
             #define strcasecmp _stricmp
         #endif
 

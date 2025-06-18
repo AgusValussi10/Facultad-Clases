@@ -17,10 +17,11 @@ void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas 
 
     if (indice == -1) {
         printf("Producto no encontrado.\n");
+        // Limpieza de buffer para evitar problemas con getchar
         printf("Presione ENTER para continuar...");
         while (getchar() != '\n');
         getchar();
-        system("cls");
+        system("cls"); // Limpiar pantalla para una mejor visualización
         return;
     }
     
@@ -38,10 +39,11 @@ void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas 
 
     if (confirmar != 's' && confirmar != 'S') {
         printf("Venta cancelada por el usuario.\n");
+        // Limpieza de buffer para evitar problemas con getchar
         printf("Presione ENTER para continuar...");
         while (getchar() != '\n');
         getchar();
-        system("cls");
+        system("cls"); // Limpiar pantalla para una mejor visualización
         return;
     }
 
@@ -51,30 +53,32 @@ void registrarVenta(Producto productos[], int cantidadProductos, RegistroVentas 
     if (cantidad <= 0 || cantidad > productos[indice].stock) {
         printf("Error: cantidad invalida. Debe ser mayor a 0 y menor o igual al stock disponible.\n");
         printf("Stock disponible: %d\n", productos[indice].stock);
+        // Limpieza de buffer para evitar problemas con getchar
         printf("Presione ENTER para continuar...");
         while (getchar() != '\n');
         getchar();
-        system("cls");
+        system("cls"); // Limpiar pantalla para una mejor visualización
         return;
     }
     
 
-    productos[indice].stock -= cantidad;
+    productos[indice].stock -= cantidad; // Actualizar stock del producto
 
     Venta venta;
-    strcpy(venta.nombre, productos[indice].nombre);
-    venta.cantidad = cantidad;
+    strcpy(venta.nombre, productos[indice].nombre); // Copiar nombre del producto a la venta
+    venta.cantidad = cantidad; 
     venta.precio = productos[indice].precio * cantidad;
-    registro->ventas[registro->totalVentas++] = venta;
+    registro->ventas[registro->totalVentas++] = venta; // Registrar la venta
 
     printf("Venta registrada: %s - Cantidad: %d - Total: $%d\n",
            venta.nombre, venta.cantidad, venta.precio);
     printf("Stock restante de %s: %d\n", productos[indice].nombre, productos[indice].stock);
 
-    printf("Presione ENTER para continuar...");
-    while (getchar() != '\n');
-    getchar();
-    system("cls");
+  // Limpieza de buffer para evitar problemas con getchar
+        printf("Presione ENTER para continuar...");
+        while (getchar() != '\n');
+        getchar();
+        system("cls"); // Limpiar pantalla para una mejor visualización
 }
 
 void mostrarVentas(RegistroVentas *registro) {
@@ -102,13 +106,14 @@ void guardarVentas(RegistroVentas *registro) {
         return;
     }
 
-    fwrite(registro, sizeof(RegistroVentas), 1, archivo);
-    fclose(archivo);
+    fwrite(registro, sizeof(RegistroVentas), 1, archivo); // Guardar registro de ventas en el archivo
+    fclose(archivo); // Cerrar el archivo
     printf("Ventas guardadas en %s.\n", ARCHIVO_VENTAS);
-    printf("Presione ENTER para continuar...");
-    while (getchar() != '\n');
-    getchar();
-    system("cls");
+   // Limpieza de buffer para evitar problemas con getchar
+        printf("Presione ENTER para continuar...");
+        while (getchar() != '\n');
+        getchar();
+        system("cls"); // Limpiar pantalla para una mejor visualización
 }
 
 void leerVentas(RegistroVentas *registro) {
@@ -118,6 +123,6 @@ void leerVentas(RegistroVentas *registro) {
         return;
     }
 
-    fread(registro, sizeof(RegistroVentas), 1, archivo);
+    fread(registro, sizeof(RegistroVentas), 1, archivo); // Leer registro de ventas desde el archivo
     fclose(archivo);
 }
