@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../.H/administracion.h"
-#include "../.H/producto.h"
+#include "../.H/administracion.h" // Para incluir las declaraciones de funciones y constantes
+#include "../.H/producto.h" // Para incluir la estructura Producto y funciones relacionadas
 
 void menuAdministrativo(Producto productos[], int *cantidadProductos) {
     int opcion;
@@ -101,10 +101,11 @@ void mostrarStockBajo(Producto productos[], int cantidadProductos) {
     if (encontrados == 0) {
         printf("Todos los productos tienen stock suficiente.\n");
     }
+    // Limpieza de buffer para evitar problemas con getchar
     printf("Presione ENTER para continuar...");
     while (getchar() != '\n');
     getchar();
-    system("cls");
+    system("cls"); // Limpiar pantalla para una mejor visualización
 }
 
 void eliminarProducto(Producto productos[], int *cantidadProductos) {
@@ -112,15 +113,16 @@ void eliminarProducto(Producto productos[], int *cantidadProductos) {
     int encontrado = 0;
 
     printf("Ingrese el nombre del producto a eliminar: ");
-    fflush(stdin);
+    fflush(stdin); // Limpio el buffer de entrada (fflush(stdin))
+
     fgets(nombre, sizeof(nombre), stdin);
-    nombre[strcspn(nombre, "\n")] = 0; 
+    nombre[strcspn(nombre, "\n")] = 0; // strcspn para eliminar el salto de línea
 
     for (int i = 0; i < *cantidadProductos; i++) {
-        if (strcmp(productos[i].nombre, nombre) == 0) {
+        if (strcmp(productos[i].nombre, nombre) == 0) { // strcmp para comparar cadenas
             for (int j = i; j < *cantidadProductos - 1; j++) {
                 productos[j] = productos[j + 1];
-            }
+            } // Desplazar productos hacia la izquierda
             (*cantidadProductos)--;
             printf("Producto eliminado correctamente.\n");
             encontrado = 1;

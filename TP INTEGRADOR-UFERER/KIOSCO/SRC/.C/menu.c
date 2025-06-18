@@ -13,7 +13,7 @@ void menu() {
     RegistroVentas registroVentas;
     registroVentas.totalVentas = 0;
 
-    cargarProductosDesdeTxt(productos, &cantidadProductos);
+    cargarProductosDesdeTxt(productos, &cantidadProductos); // Cargar productos desde un archivo de texto
 
     if (cantidadProductos == 0) {
         printf("No hay productos cargados.\n");
