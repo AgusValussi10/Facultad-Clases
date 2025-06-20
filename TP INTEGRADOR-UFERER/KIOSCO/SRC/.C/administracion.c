@@ -67,7 +67,7 @@ void menuAdministrativo(Producto productos[], int *cantidadProductos) {
             }
 
             printf("Ingrese precio: ");
-            scanf("%f", &nuevo.precio);
+            scanf("%d", &nuevo.precio);
             printf("Ingrese stock: ");
             scanf("%d", &nuevo.stock);
 
